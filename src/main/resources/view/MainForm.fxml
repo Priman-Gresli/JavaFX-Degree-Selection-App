@@ -17,7 +17,8 @@
 
 <AnchorPane prefHeight="911.0" prefWidth="1226.0" stylesheets="@../styles/MainFormStyles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.dep10.app.controller.MainFormController">
    <children>
-      <Button fx:id="btnNewStudent" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnNewStudentOnAction" prefHeight="30.0" prefWidth="170.0" text="+ NEW STUDENT" AnchorPane.leftAnchor="30.0">
+      <AnchorPane fx:id="cntroot" prefHeight="911.0" prefWidth="1226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="btnNewStudent" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnNewStudentOnAction" onMouseEntered="#btnNewStudentMouseEntered" onMouseExited="#btnNewStudentMouseExited" prefHeight="30.0" prefWidth="170.0" style="-fx-border-color: blue;" text="+ NEW STUDENT" AnchorPane.leftAnchor="30.0">
          <font>
             <Font size="16.0" />
          </font>
@@ -31,7 +32,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtId" editable="false" maxWidth="1.7976931348623157E308" promptText="Genereated Student ID" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtId" editable="false" maxWidth="1.7976931348623157E308" promptText="Genereated Student ID" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -48,7 +49,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtName" maxWidth="1.7976931348623157E308" promptText="Eg. Kasun Sampath" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="txtName" maxWidth="1.7976931348623157E308" promptText="Eg. Kasun Sampath" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -95,7 +96,7 @@
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="btnAdd" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="30.0" prefWidth="117.0" text="ADD">
+                  <Button fx:id="btnAdd" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#btnAddOnAction" onMouseEntered="#btnAddMouseEntered" onMouseExited="#btnAddMouseExited" prefHeight="30.0" prefWidth="117.0" text="ADD">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -113,7 +114,7 @@
                      </font>
                   </Label>
                   <ListView fx:id="lstContacts" maxWidth="1.7976931348623157E308" minHeight="75.0" onKeyReleased="#lstContactsOnKeyReleased" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
-                  <Button fx:id="btnRemove" maxHeight="30.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" prefHeight="30.0" prefWidth="117.0" text="REMOVE">
+                  <Button fx:id="btnRemove" maxHeight="30.0" mnemonicParsing="false" onAction="#btnRemoveOnAction" onMouseEntered="#btnRemoveMouseEntered" onMouseExited="#btnRemoveMouseExited" prefHeight="30.0" prefWidth="117.0" text="REMOVE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -138,12 +139,12 @@
                   <ListView fx:id="lstModules" maxWidth="1.7976931348623157E308" minHeight="150.0" onKeyReleased="#lstModulesOnKeyReleased" prefHeight="148.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
                   <VBox spacing="10.0">
                      <children>
-                        <Button fx:id="btnForward" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" onAction="#btnForwardOnAction" prefHeight="30.0" prefWidth="117.0" text="&gt;">
+                        <Button fx:id="btnForward" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" onAction="#btnForwardOnAction" onMouseEntered="#btnForwardMouseEntered" onMouseExited="#btnForwardMouseExited" prefHeight="30.0" prefWidth="117.0" text="&gt;">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="30.0" prefWidth="117.0" text="&lt;">
+                        <Button fx:id="btnBack" layoutX="10.0" layoutY="10.0" maxHeight="30.0" maxWidth="5.0" mnemonicParsing="false" onAction="#btnBackOnAction" onMouseEntered="#btnBackMouseEntered" onMouseExited="#btnBackMouseExited" prefHeight="30.0" prefWidth="117.0" text="&lt;">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -163,12 +164,12 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnSave" minWidth="117.0" mnemonicParsing="false" onAction="#btnSaveOnAction" text="SAVE">
+                  <Button fx:id="btnSave" minWidth="117.0" mnemonicParsing="false" onAction="#btnSaveOnAction" onMouseEntered="#btnSaveMouseEntered" onMouseExited="#btnSaveMouseExited" text="SAVE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnDelete" layoutX="195.0" layoutY="10.0" minWidth="117.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" text="DELETE">
+                  <Button fx:id="btnDelete" layoutX="195.0" layoutY="10.0" minWidth="117.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" onMouseEntered="#btnDeleteMouseEntered" onMouseExited="#btnDeleteMouseExited" text="DELETE">
                      <font>
                         <Font size="16.0" />
                      </font>

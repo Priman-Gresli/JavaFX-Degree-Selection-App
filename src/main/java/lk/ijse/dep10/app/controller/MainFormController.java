@@ -3,12 +3,14 @@ package lk.ijse.dep10.app.controller;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
+
 import lk.ijse.dep10.app.model.Student;
-import lk.ijse.dep10.app.util.Gender;
+
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -94,7 +96,7 @@ public class MainFormController {
         lstModules.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         lstSelectedModules.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         lstContacts.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        tblStudentDetails.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+
         ObservableList<String> contactList = lstContacts.getItems();
         ObservableList<String> moduleList = lstModules.getItems();
         ObservableList<String> selectedModuleList = lstSelectedModules.getItems();
@@ -121,7 +123,6 @@ public class MainFormController {
         lstContacts.setDisable(true);
         lstModules.setDisable(true);
         lstSelectedModules.setDisable(true);
-//        tblStudentDetails.setDisable(true);
         cmbSelectedDegree.setDisable(true);
 
 
@@ -203,16 +204,13 @@ public class MainFormController {
     void btnNewStudentOnAction(ActionEvent event) {
         ObservableList<String> comboSelectedDegree =  cmbSelectedDegree.getItems();
         comboSelectedDegree.clear();
-
         cmbSelectedDegree.getItems().addAll("Mechanical Engineering","Civil Engineering","Computer Engineering","Electrical Engineering","Material Engineering");
-
         cmbSelectedDegree.setPromptText("Select a Degree Programme");
         contactArray=new ArrayList<String>();
         moduleArray=new ArrayList<String>();
         ObservableList<String> selectedModuleList = lstSelectedModules.getItems();
         ObservableList<String> moduleList = lstModules.getItems();
         ObservableList<String> contactList = lstContacts.getItems();
-
 
         cmbSelectedDegree.getSelectionModel().selectedItemProperty().addListener((value, previous, current) -> {
             moduleList.clear();
@@ -250,7 +248,6 @@ public class MainFormController {
                 }
             }
 
-
         });
 
         txtContact.getStyleClass().remove("invalid");
@@ -264,8 +261,6 @@ public class MainFormController {
         contactList.clear();
         selectedModuleList.clear();
         moduleList.clear();
-// clear gender
-
 
         txtName.setDisable(false);
         txtContact.setDisable(false);
@@ -404,15 +399,15 @@ public class MainFormController {
 
         if (valid) { // add new student
 
-            Optional<ButtonType> optButton = new Alert(Alert.AlertType.CONFIRMATION,
-                    "Once you Save, You Can't Change The Department",
-                    ButtonType.YES, ButtonType.NO).showAndWait();
-            if (optButton.isEmpty() || optButton.get() ==  ButtonType.NO) return;
-
             tblStudentDetails.setDisable(false);
             if (selectedStudent == null) {
-                lstContacts.getStyleClass().remove("invalid");
 
+                Optional<ButtonType> optButton = new Alert(Alert.AlertType.CONFIRMATION,
+                        "Once you Save, You Can't Change The Department",
+                        ButtonType.YES, ButtonType.NO).showAndWait();
+                if (optButton.isEmpty() || optButton.get() ==  ButtonType.NO) return;
+
+                lstContacts.getStyleClass().remove("invalid");
 
                 switch (selectedDegree) {
                     case "Mechanical": {
@@ -495,7 +490,7 @@ public class MainFormController {
 
     @FXML
     void lstContactsOnKeyReleased(KeyEvent event) {
-
+        if (event.getCode() == KeyCode.DELETE) btnRemove.fire();
     }
 
     @FXML
@@ -513,8 +508,80 @@ public class MainFormController {
 
     }
 
+    public void cmbSelectedDegreeOnAction(ActionEvent event) {
 
-    public void cmbSelectedDegreeOnAction(ActionEvent actionEvent) {
+    }
+    @FXML
 
+
+
+    public void btnNewStudentMouseEntered(MouseEvent event) {
+
+        btnNewStudent.setScaleY(1.05);
+        btnNewStudent.setScaleX(1.05);
+    }
+
+    public void btnNewStudentMouseExited(MouseEvent event) {
+        btnNewStudent.setScaleY(1);
+        btnNewStudent.setScaleX(1);
+    }
+
+    public void btnAddMouseEntered(MouseEvent event) {
+        btnAdd.setScaleY(1.05);
+        btnAdd.setScaleX(1.05);
+    }
+
+    public void btnAddMouseExited(MouseEvent event) {
+        btnAdd.setScaleY(1);
+        btnAdd.setScaleX(1);
+    }
+
+    public void btnRemoveMouseEntered(MouseEvent event) {
+        btnRemove.setScaleY(1.05);
+        btnRemove.setScaleX(1.05);
+    }
+
+    public void btnRemoveMouseExited(MouseEvent event) {
+        btnRemove.setScaleY(1);
+        btnRemove.setScaleX(1);
+    }
+
+    public void btnForwardMouseExited(MouseEvent event) {
+        btnForward.setScaleY(1.05);
+        btnForward.setScaleX(1.05);
+    }
+
+    public void btnForwardMouseEntered(MouseEvent event) {
+        btnForward.setScaleY(1);
+        btnForward.setScaleX(1);
+    }
+
+    public void btnBackMouseEntered(MouseEvent event) {
+        btnBack.setScaleY(1.05);
+        btnBack.setScaleX(1.05);
+    }
+
+    public void btnBackMouseExited(MouseEvent event) {
+        btnBack.setScaleY(1);
+        btnBack.setScaleX(1);
+    }
+
+    public void btnDeleteMouseExited(MouseEvent event) {
+        btnDelete.setScaleY(1.05);
+        btnDelete.setScaleX(1.05);
+    }
+
+    public void btnDeleteMouseEntered(MouseEvent event) {
+        btnDelete.setScaleY(1);
+        btnDelete.setScaleX(1);
+    }
+
+    public void btnSaveMouseEntered(MouseEvent event) {
+        btnSave.setScaleY(1.05);
+        btnSave.setScaleX(1.05);
+    }
+    public void btnSaveMouseExited(MouseEvent event) {
+        btnSave.setScaleY(1);
+        btnSave.setScaleX(1);
     }
 }

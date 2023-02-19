@@ -6,12 +6,10 @@
     -fx-text-fill: red;
 }
 
-#btnNewStudent{
-    -fx-background-color: rgba(91, 91, 218, 0.32);
-}
 .label{
     -fx-text-fill:  #043659;
 }
+
 
 #rdoFemale{
     -fx-text-fill: #043659;
@@ -30,4 +28,8 @@
 }
 #lstModules{
     -fx-text-fill:  red;
+}
+#cntroot{
+    -fx-background-color: rgba(229, 229, 248, 0.74);
+
 }
