@@ -1,0 +1,33 @@
+.invalid{
+    -fx-border-width: 2px;
+    -fx-border-color: red;
+}
+.invalidGender{
+    -fx-text-fill: red;
+}
+
+#btnNewStudent{
+    -fx-background-color: rgba(91, 91, 218, 0.32);
+}
+.label{
+    -fx-text-fill:  #043659;
+}
+
+#rdoFemale{
+    -fx-text-fill: #043659;
+}
+#rdoMale{
+    -fx-text-fill: #043659;
+}
+#btnSave,#btnAdd{
+    -fx-background-color: rgba(116, 196, 116, 0.77);
+    -fx-text-fill: #191946;
+}
+#btnDelete,#btnRemove{
+    -fx-background-color: rgba(211, 8, 8, 0.61);
+    -fx-text-fill: black;
+
+}
+#lstModules{
+    -fx-text-fill:  red;
+}
